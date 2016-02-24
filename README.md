@@ -4,7 +4,7 @@
 
 2 - Muestra cuantos animales hay y el total de razas.
 
-3 - Mostrar los cachorros de caninos (entre 0 y 3 meses).
+3 - Pide por teclado años o meses, despues vuelve a pedir por teclado una edad mínima y edad máxima.
 
 4 - Pide por teclado una especie y que muestre todos los animales disponibles de esa especie.
 
