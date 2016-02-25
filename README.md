@@ -2,7 +2,7 @@
 
 1 - Lista los animales que hay en adopción con su nombre y raza.
 
-2 - Muestra cuantos animales hay en adopción.
+2 - Muestra cuantos animales hay y el total de razas.
 
 3 - Pide por teclado años o meses, despues vuelve a pedir por teclado una edad mínima y edad máxima.
 
