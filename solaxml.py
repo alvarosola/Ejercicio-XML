@@ -3,6 +3,10 @@
 
 #Ejercicio-XML
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 from lxml import etree
 arbol= etree.parse("animal-en-adopcion.xml")
 
@@ -10,17 +14,10 @@ raiz=arbol.getroot()
 
 #1 - Lista los animales que hay en adopción con su nombre y raza.
 
-lista=raiz.findall("result/animal-en-adopcion/nombre")
-lista1=raiz.findall("result/animal-en-adopcion/raza")
+lista=raiz.xpath("//resultado/result/animal-en-adopcion")
 
 for x in lista:
-	nombre=x.text
-
-for i in lista1:
-	raza=i.text
-		
-print "Nombre:",nombre,"y su raza es",raza
-
+	print "Nombre:",x.xpath("nombre/text()"),"y su raza es",x.xpath("raza/text()")
 
 #2 - Muestra cuantos animales hay en adopción.
 
