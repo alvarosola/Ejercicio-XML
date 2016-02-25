@@ -3,9 +3,26 @@
 
 #Ejercicio-XML
 
+from lxml import etree
+arbol= etree.parse("animal-en-adopcion.xml")
+
+raiz=arbol.getroot()
+
 #1 - Lista los animales que hay en adopción con su nombre y raza.
 
-#2 - Muestra cuantos animales hay y el total de razas.
+lista=raiz.findall("result/animal-en-adopcion/nombre")
+lista1=raiz.findall("result/animal-en-adopcion/raza")
+
+for x in lista:
+	nombre=x.text
+
+for i in lista1:
+	raza=i.text
+		
+print "Nombre:",nombre,"y su raza es",raza
+
+
+#2 - Muestra cuantos animales hay en adopción.
 
 #3 - Pide por teclado años o meses, despues vuelve a pedir por teclado una edad mínima y edad máxima.
 
