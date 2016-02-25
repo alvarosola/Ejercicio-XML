@@ -17,7 +17,7 @@ raiz=arbol.getroot()
 lista=raiz.xpath("//resultado/result/animal-en-adopcion")
 
 for x in lista:
-	print "Nombre:",x.xpath("nombre/text()"),"y su raza es",x.xpath("raza/text()")
+	print "Nombre:",x.xpath("nombre/text()")[0],"y su raza es",x.xpath("raza/text()")[0]
 
 #2 - Muestra cuantos animales hay en adopción.
 
