@@ -27,6 +27,7 @@ contador=0
 for i in lista1:
 	contador=contador+1
 print "Hay un total de",contador,"animales con sus razas."
+print "--------------------------------------------------"
 
 #3 - Pide por teclado años o meses, despues vuelve a pedir por teclado una edad mínima y edad máxima.
 
@@ -37,10 +38,21 @@ print "Hay un total de",contador,"animales con sus razas."
 pregunta1=raw_input("Introduzca una especie:")
 
 lista3=raiz.xpath("//animal-en-adopcion")
+print "Los animales de esta especie que hay disponibles son:"
 
 for especie in lista3:
-	if especie.find("especie").text== pregunta1:
+	if especie.find("especie").text.lower()== pregunta1.lower():
 		for nombre in especie.xpath("nombre"):
 			print nombre.text
 
+print "-----------------------------------------------------"
 #5 - Pide por teclado el tamaño de los animales y te diga de que especies hay disponibles de ese tamaño.
+
+pregunta2=raw_input("Introduzca una tamaño:")
+
+lista4=raiz.xpath("//animal-en-adopcion")
+
+for tamano in lista4:
+	if pregunta2.title() in tamano.xpath("tamagno"):
+		for tam in tamano.xpath("especie"):
+			print tam.text
