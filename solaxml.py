@@ -30,6 +30,17 @@ print "Hay un total de",contador,"animales con sus razas."
 
 #3 - Pide por teclado años o meses, despues vuelve a pedir por teclado una edad mínima y edad máxima.
 
+
+
 #4 - Pide por teclado una especie y que muestre todos los animales disponibles de esa especie.
+
+pregunta1=raw_input("Introduzca una especie:")
+
+lista3=raiz.xpath("//animal-en-adopcion")
+
+for especie in lista3:
+	if especie.find("especie").text== pregunta1:
+		for nombre in especie.xpath("nombre"):
+			print nombre.text
 
 #5 - Pide por teclado el tamaño de los animales y te diga de que especies hay disponibles de ese tamaño.
