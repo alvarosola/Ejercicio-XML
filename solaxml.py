@@ -14,12 +14,19 @@ raiz=arbol.getroot()
 
 #1 - Lista los animales que hay en adopción con su nombre y raza.
 
-lista=raiz.xpath("//resultado/result/animal-en-adopcion")
+lista=raiz.xpath("//animal-en-adopcion")
 
 for x in lista:
-	print "Nombre:",x.xpath("nombre/text()")[0],"y su raza es",x.xpath("raza/text()")[0]
+	print "Nombre:",x.find("nombre").text,"y su raza es",x.find("raza").text
 
-#2 - Muestra cuantos animales hay en adopción.
+#2 - Muestra cuantos animales y razas hay en total.
+
+lista1=raiz.xpath("//animal-en-adopcion")
+
+contador=0
+for i in lista1:
+	contador=contador+1
+print "Hay un total de",contador,"animales con sus razas."
 
 #3 - Pide por teclado años o meses, despues vuelve a pedir por teclado una edad mínima y edad máxima.
 
