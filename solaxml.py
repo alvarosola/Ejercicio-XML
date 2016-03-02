@@ -32,11 +32,11 @@ for i in lista1:
 print "Hay un total de",contador,"animales con sus razas."
 print "--------------------------------------------------"
 
-#3- Pide por teclado una edad, cachorro(0-3 meses), adulto(1-5 años) o mayor(>5 años) y despues devuelve los animales que hay disponibles de esa edad.
+#3- Pide por teclado una edad, cachorro(0-3 meses), joven (3-12 meses), adulto(1-5 años), o mayor(>5 años) y despues devuelve los animales que hay disponibles de esa edad.
 
 lista2=raiz.xpath("//animal-en-adopcion")
 
-pregunta=raw_input("Introduzca cachorro(0-3 meses), adulto(1-5 años) o mayor(>5años):")
+pregunta=raw_input("Introduzca cachorro(0-3 meses) joven (3-12 meses), adulto(1-5 años) o mayor(>5años):")
 
 for edad in lista2:
 	if pregunta.title() in edad.findtext("edad"):
