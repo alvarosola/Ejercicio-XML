@@ -4,7 +4,7 @@
 
 2 - Muestra cuantos animales y razas hay en total.
 
-3 - Pide por teclado años o meses, despues vuelve a pedir por teclado una edad mínima y edad máxima.
+3 - Pide por teclado una edad, cachorro(0-3 meses), adulto(1-5 años) o mayor(>5 años) y despues devuelve los animales que hay disponibles de esa edad.
 
 4 - Pide por teclado una especie y que muestre todos los animales disponibles de esa especie.
 
