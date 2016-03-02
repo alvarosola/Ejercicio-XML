@@ -16,6 +16,8 @@ raiz=arbol.getroot()
 
 lista=raiz.xpath("//animal-en-adopcion")
 
+print "Lista de animales en adopción:"
+
 for x in lista:
 	print "Nombre:",x.find("nombre").text,"y su raza es",x.find("raza").text
 
@@ -23,6 +25,7 @@ for x in lista:
 
 lista1=raiz.xpath("//animal-en-adopcion")
 
+print "--------------------------------------------------"
 contador=0
 for i in lista1:
 	contador=contador+1
@@ -35,9 +38,10 @@ print "--------------------------------------------------"
 
 #4 - Pide por teclado una especie y que muestre todos los animales disponibles de esa especie.
 
+lista3=raiz.xpath("//animal-en-adopcion")
+
 pregunta1=raw_input("Introduzca una especie:")
 
-lista3=raiz.xpath("//animal-en-adopcion")
 print "Los animales de esta especie que hay disponibles son:"
 
 for especie in lista3:
@@ -46,13 +50,20 @@ for especie in lista3:
 			print nombre.text
 
 print "-----------------------------------------------------"
-#5 - Pide por teclado el tamaño de los animales y te diga de que especies hay disponibles de ese tamaño.
 
-pregunta2=raw_input("Introduzca una tamaño:")
+#5 - Pide por teclado el tamaño de los animales y te diga de que especies hay disponibles de ese tamaño.
 
 lista4=raiz.xpath("//animal-en-adopcion")
 
+pregunta2=raw_input("Introduzca una tamaño:")
+contador1=0
+
+tamagno=raiz.xpath("//tamagno").text
+tamagno_especie=raiz.xpath("//especie").text
+
 for tamano in lista4:
-	if pregunta2.title() in tamano.xpath("tamagno"):
-		for tam in tamano.xpath("especie"):
-			print tam.text
+	if pregunta2.title() in tamagno:
+		for tam in tamagno_especie:
+			print tam
+
+print "-----------------------------------------------------"
