@@ -1,11 +1,7 @@
 #!/usr/bin/python
-#-*- coding: utf-8 -*--
+#-*- coding: utf-8 -*-
 
 #Ejercicio-XML
-
-import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
 
 from lxml import etree
 arbol= etree.parse("animal-en-adopcion.xml")
@@ -36,20 +32,21 @@ print "--------------------------------------------------"
 
 lista2=raiz.xpath("//animal-en-adopcion")
 
-pregunta=raw_input("Introduzca cachorro(0-3 meses) joven (3-12 meses), adulto(1-5 años) o mayor(>5años):")
+pregunta=raw_input("Introduzca una edad (cachorro(0-3 meses), joven (3-12 meses), adulto(1-5 años) o mayor(>5años):")
 
-for edad in lista2:
-	if pregunta.title() in edad.findtext("edad"):
-		for animal in edad.xpath("nombre"):
-			print animal.text
- 
+if pregunta=="cachorro" or "joven" or "adulto" or "mayor":
+	for edad in lista2:
+		if pregunta.title() in edad.findtext("edad"):
+			for animal in edad.xpath("nombre"):
+				print animal.text
+
 print "-----------------------------------------------------"
 
 #4 - Pide por teclado una especie y que muestre todos los animales disponibles de esa especie.
 
 lista3=raiz.xpath("//animal-en-adopcion")
 
-pregunta1=raw_input("Introduzca una especie:")
+pregunta1=raw_input("Introduzca una especie (canina, felina, otros):")
 
 print "Los animales de esta especie que hay disponibles son:"
 
@@ -64,10 +61,12 @@ print "-----------------------------------------------------"
 
 lista4=raiz.xpath("//animal-en-adopcion")
 
-pregunta2=raw_input("Introduzca una tamaño:")
+pregunta2=unicode(raw_input("Introduzca una tamaño:"),'utf8')
 contador1=0
 
 for tamagno in lista4:
+	#contador1+=1
+	contador1=1
 	if pregunta2.title() in tamagno.findtext("tamagno"):
-		for tam in len(tamagno("//especie/text()")):
-			print tam
+		for tam in tamagno.xpath("especie"):
+			print "Hay",contador1,"de la especie",tam.text
