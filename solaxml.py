@@ -25,7 +25,7 @@ print "--------------------------------------------------"
 contador=0
 for i in lista1:
 	contador=contador+1
-print "Hay un total de",contador,"animales con sus razas."
+print "Hay un total de",contador,"animales y razas."
 print "--------------------------------------------------"
 
 #3- Pide por teclado una edad, cachorro(0-3 meses), joven (3-12 meses), adulto(1-5 años), o mayor(>5 años) y despues devuelve los animales que hay disponibles de esa edad.
@@ -33,6 +33,8 @@ print "--------------------------------------------------"
 lista2=raiz.xpath("//animal-en-adopcion")
 
 pregunta=raw_input("Introduzca una edad (cachorro(0-3 meses), joven (3-12 meses), adulto(1-5 años) o mayor(>5años):")
+
+print "Los animales de esta edad que hay disponibles son:"
 
 if pregunta=="cachorro" or "joven" or "adulto" or "mayor":
 	for edad in lista2:
@@ -61,8 +63,10 @@ print "-----------------------------------------------------"
 
 lista4=raiz.xpath("//animal-en-adopcion")
 
-pregunta2=unicode(raw_input("Introduzca una tamaño:"),'utf8')
+pregunta2=unicode(raw_input("Introduzca una tamaño (pequeño, mediano, grande, gigante):"),'utf8')
 contador1=0
+
+print "Las especies que hay disponibles de este tamaño son:"
 
 for tamagno in lista4:
 	#contador1+=1
