@@ -42,7 +42,7 @@ for edad in lista2:
 	if pregunta.title() in edad.findtext("edad"):
 		for animal in edad.xpath("nombre"):
 			print animal.text
-
+ 
 print "-----------------------------------------------------"
 
 #4 - Pide por teclado una especie y que muestre todos los animales disponibles de esa especie.
