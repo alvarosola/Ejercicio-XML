@@ -1,11 +1,8 @@
 #!/usr/bin/python
-#-*- coding: utf-8 -*--
+#-*- coding: utf-8 -*-
 
 #Ejercicio-XML
-
-import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
+#ÁLVARO SOLA OLIVERO
 
 from lxml import etree
 arbol= etree.parse("animal-en-adopcion.xml")
@@ -29,19 +26,24 @@ print "--------------------------------------------------"
 contador=0
 for i in lista1:
 	contador=contador+1
-print "Hay un total de",contador,"animales con sus razas."
+print "Hay un total de",contador,"animales y razas."
 print "--------------------------------------------------"
 
 #3- Pide por teclado una edad, cachorro(0-3 meses), joven (3-12 meses), adulto(1-5 años), o mayor(>5 años) y despues devuelve los animales que hay disponibles de esa edad.
 
 lista2=raiz.xpath("//animal-en-adopcion")
 
-pregunta=raw_input("Introduzca cachorro(0-3 meses) joven (3-12 meses), adulto(1-5 años) o mayor(>5años):")
+pregunta=raw_input("Introduzca una edad (cachorro(0-3 meses), joven (3-12 meses), adulto(1-5 años) o mayor(>5años):")
 
-for edad in lista2:
-	if pregunta.title() in edad.findtext("edad"):
-		for animal in edad.xpath("nombre"):
-			print animal.text
+print "Los animales de esta edad que hay disponibles son:"
+
+if pregunta=="cachorro" or "joven" or "adulto" or "mayor":
+	for edad in lista2:
+		if pregunta.title() in edad.findtext("edad"):
+			for animal in edad.xpath("nombre"):
+				print animal.text
+else:
+	print "Introduzca una edad correcta."
 
 print "-----------------------------------------------------"
 
@@ -49,7 +51,7 @@ print "-----------------------------------------------------"
 
 lista3=raiz.xpath("//animal-en-adopcion")
 
-pregunta1=raw_input("Introduzca una especie:")
+pregunta1=raw_input("Introduzca una especie (canina, felina, otros):")
 
 print "Los animales de esta especie que hay disponibles son:"
 
@@ -64,10 +66,14 @@ print "-----------------------------------------------------"
 
 lista4=raiz.xpath("//animal-en-adopcion")
 
-pregunta2=raw_input("Introduzca una tamaño:")
+pregunta2=unicode(raw_input("Introduzca una tamaño (pequeño, mediano, grande, gigante):"),'utf8')
 contador1=0
 
+print "Las especies que hay disponibles de este tamaño son:"
+
 for tamagno in lista4:
+	#contador1+=1
+	contador1=1
 	if pregunta2.title() in tamagno.findtext("tamagno"):
-		for tam in len(tamagno("//especie/text()")):
-			print tam
+		for tam in tamagno.xpath("especie"):
+			print "Hay",contador1,"de la especie",tam.text
