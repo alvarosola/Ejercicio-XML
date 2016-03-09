@@ -46,6 +46,8 @@ if pregunta=="cachorro" or "joven" or "adulto" or "mayor":
 		if pregunta.title() in edad.findtext("edad"):
 			for animal in edad.xpath("nombre"):
 				print animal.text
+else:
+	print "Introduzca una edad correcta."
 
 print "-----------------------------------------------------"
 
