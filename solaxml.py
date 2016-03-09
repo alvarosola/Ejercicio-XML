@@ -96,7 +96,7 @@ for elemento in lista5:
 	imagen=elemento.find("foto").text
 	imagen1=imagen.lstrip("//")
 #	imagen1="http:"+imagen
-			
+	
 	archivo.write("<h1>"+str(nombre1)+"</h1>")
 	archivo.write("<p>"+str(tamagno1)+"</p>")
 	archivo.write("<img src="+str(imagen1)+"/>"+"\n")
