@@ -82,7 +82,11 @@ for tamagno in lista4:
 		for tam in tamagno.xpath("especie"):
 			print "Hay",contador1,"de la especie",tam.text
 
+<<<<<<< HEAD
 #6 - Ejercicio Jose Domingo
+=======
+#6 - Ejercicio de Jose Domingo
+>>>>>>> f055980dcf6556cc5993ec72886a61195bb37433
 
 lista5=raiz.xpath("//animal-en-adopcion")
 
