@@ -7,6 +7,10 @@
 from lxml import etree
 arbol= etree.parse("animal-en-adopcion.xml")
 
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
 raiz=arbol.getroot()
 
 #1 - Lista los animales que hay en adopción con su nombre y raza.
@@ -77,3 +81,23 @@ for tamagno in lista4:
 	if pregunta2.title() in tamagno.findtext("tamagno"):
 		for tam in tamagno.xpath("especie"):
 			print "Hay",contador1,"de la especie",tam.text
+
+#6 - Ejercicio Jose Domingo
+
+lista5=raiz.xpath("//animal-en-adopcion")
+
+print "Se ha credo el fichero animales.html"
+
+fich="animales.html"
+archivo=open(fich,"w")
+for elemento in lista5:
+	nombre1=elemento.find("nombre").text
+	tamagno1=elemento.find("tamagno").text
+	imagen=elemento.find("foto").text
+	imagen1=imagen.lstrip("//")
+#	imagen1="http:"+imagen
+	
+	archivo.write("<h1>"+str(nombre1)+"</h1>")
+	archivo.write("<p>"+str(tamagno1)+"</p>")
+	archivo.write("<img src="+str(imagen1)+"/>"+"\n")
+archivo.close()
