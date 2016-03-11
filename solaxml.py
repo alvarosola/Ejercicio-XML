@@ -82,11 +82,7 @@ for tamagno in lista4:
 		for tam in tamagno.xpath("especie"):
 			print "Hay",contador1,"de la especie",tam.text
 
-<<<<<<< HEAD
 #6 - Ejercicio Jose Domingo
-=======
-#6 - Ejercicio de Jose Domingo
->>>>>>> f055980dcf6556cc5993ec72886a61195bb37433
 
 lista5=raiz.xpath("//animal-en-adopcion")
 
@@ -98,10 +94,10 @@ for elemento in lista5:
 	nombre1=elemento.find("nombre").text
 	tamagno1=elemento.find("tamagno").text
 	imagen=elemento.find("foto").text
-	imagen1=imagen.lstrip("//")
-#	imagen1="http:"+imagen
+	imagen1=imagen[2:]
+	imagen2="http:"+imagen1
 	
 	archivo.write("<h1>"+str(nombre1)+"</h1>")
 	archivo.write("<p>"+str(tamagno1)+"</p>")
-	archivo.write("<img src="+str(imagen1)+"/>"+"\n")
+	archivo.write('<img src="'+str(imagen2)+'"/>'+"\n")
 archivo.close()
